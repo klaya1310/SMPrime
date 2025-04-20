@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.swsi.smprime"
+	android:versionCode="1"
+	android:versionName="1.0"
+	android:installLocation="auto">
+	
+	<uses-sdk android:minSdkVersion="5" android:maxSdkVersion="30" android:targetSdkVersion="29"/>
+	
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	
+	<uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+	<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+	
+	
+	<supports-screens android:largeScreens="true" 
+	    android:normalScreens="true"
+	    android:smallScreens="true"
+	    android:windowActionBar="true"
+	    android:windowFullscreen="true"
+	    android:windowNoTitle="true"
+		android:anyDensity="true"/>
+	<uses-feature android:name="android.hardware.telephony" android:required="false" />
+	<uses-feature android:name="android.hardware.camera" android:required="false" />
+	<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+	<uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.BLUETOOTH"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+	<uses-permission android:name="android.permission.BIND_PRINT_SERVICE"/>
+	<uses-permission android:name="android.permission.CAMERA"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+	<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+	<application
+		android:name="androidx.multidex.MultiDexApplication"
+		android:largeHeap="true"
+		android:usesCleartextTraffic="true"
+		android:icon="@drawable/icon"
+		android:label="SM Prime"
+		android:theme="@style/MyAppTheme"
+		android:allowBackup="false"
+		android:requestLegacyExternalStorage="true">
+		
+		<uses-library android:name="org.apache.http.legacy" android:required="false" />
+		<activity
+			android:windowSoftInputMode="adjustPan|stateHidden"
+			android:launchMode="singleTop"
+			android:name=".main"
+			android:label="SM Prime"
+			android:screenOrientation="unspecified">
+			<intent-filter>
+			   <action android:name="android.intent.action.MAIN" />
+			   <category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			
+		</activity>
+		<service android:name=".starter">
+		</service>
+		<receiver android:name=".starter$starter_BR">
+		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".mainscreen"
+			android:label="SM Prime"
+			android:screenOrientation="unspecified">
+		</activity>
+		<service android:name=".httputils2service">
+		</service>
+		<receiver android:name=".httputils2service$httputils2service_BR">
+		</receiver>
+	</application>
+</manifest>
